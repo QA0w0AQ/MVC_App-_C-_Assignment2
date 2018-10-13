@@ -7,6 +7,10 @@ namespace Assignment2.Models
 {
     public class Sale
     {
+        public Sale()
+        {
+            Products = new HashSet<Product>();
+        }
         public int Id { get; set; }
         public DateTime Date { get; set; }
 
@@ -18,11 +22,11 @@ namespace Assignment2.Models
 
         public virtual ICollection<Product> Products { get; set; }
 
-        public int? EmployeeId { get; set; }
-        public virtual ApplicationUser Employee { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual Employee Employee { get; set; }
 
-        public string SaleManId { get; set; }
-        public virtual ApplicationUser SaleMan { get; set; }
+        public int? ApprovedSalesId { get; set; }
+        public virtual Employee ApprovedSales { get; set; }
 
     }
 }

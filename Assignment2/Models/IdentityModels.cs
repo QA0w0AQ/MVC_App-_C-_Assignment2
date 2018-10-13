@@ -11,18 +11,6 @@ namespace Assignment2.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        public ApplicationUser()
-        {
-            SalesByEmployee = new HashSet<Sale>();
-            SalesBySaleMan = new HashSet<Sale>();
-        }
-
-        [InverseProperty("Employee")]
-        public virtual ICollection<Sale> SalesByEmployee { get; set; }
-
-        [InverseProperty("SaleMan")]
-        public virtual ICollection<Sale> SalesBySaleMan { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -44,10 +32,10 @@ namespace Assignment2.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Customer> Customer { get; set; }
-        public DbSet<Employee> Employee { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Sale> Sale { get; set; }
-        public DbSet<StoreLocation> StoreLocation { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<StoreLocation> StoreLocations { get; set; }
     }
 }

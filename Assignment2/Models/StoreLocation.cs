@@ -7,6 +7,11 @@ namespace Assignment2.Models
 {
     public class StoreLocation
     {
+        public StoreLocation()
+        {
+            Sales = new HashSet<Sale>();
+        }
+
         public int Id { get; set; }
         public string LocationName { get; set; }
 
